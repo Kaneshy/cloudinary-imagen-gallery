@@ -31,7 +31,7 @@ export const getServerSideProps = async () => {
 }
 
 
-export default function homePage({ secureUrls }) {
+function homePage({ secureUrls }) {
 
   return (
     <>
@@ -52,3 +52,5 @@ export default function homePage({ secureUrls }) {
     </>
   )
 }
+
+export default homePage
