@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Footer from '@/components/Footer';
 
 
-function index() {
+function Home() {
   const [imageSrc, setImageSrc] = useState();
   const [uploadData, setUploadData] = useState();
 
@@ -80,6 +80,6 @@ function index() {
   )
 }
 
-export default index
+export default Home
 
 
