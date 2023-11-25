@@ -3,6 +3,8 @@ import UploadImg from '@/components/UploadImg';
 import cloudinary from 'cloudinary'
 import Link from 'next/link';
 import FloatTarjet from '@/components/FloatTarjet';
+import { CldImage } from 'next-cloudinary';
+
 
 
 export const getServerSideProps = async () => {
@@ -20,9 +22,12 @@ export const getServerSideProps = async () => {
       .max_results(80)
       .execute();
     const secureUrls = results.resources.map(resource => resource.secure_url);
+    const publicId = results.resources.map(resource => resource.public_id);
+    console.log(publicId)
     return {
       props: {
-        secureUrls // Pasar secureUrls como propiedad al componente homePage
+        secureUrls,
+        publicId // Pasar secureUrls como propiedad al componente homePage
       }
     }
 
@@ -30,10 +35,11 @@ export const getServerSideProps = async () => {
     console.error('Error al obtener los resultados de Cloudinary:', error);
     throw error;
   }
+
 }
 
 
-function homePage({ secureUrls }) {
+function homePage({ secureUrls, publicId }) {
 
   return (
     <>
@@ -44,12 +50,19 @@ function homePage({ secureUrls }) {
           <h1  >GALLERY</h1>
         </div>
         <div className='pm-grid-container' >
-          {secureUrls && secureUrls.map((url, index) => (
+          {publicId && publicId.map((pId, index) => (
             <Link  href={{
               pathname: '/images/[slug]',
-              query: { slug: url },
+              query: { slug: pId },
             }} url='url' key={index} className='img-content'   >
-              <img loading='lazy' src={url} alt={`Imagen ${index}`} />
+              {/* <img loading='lazy' src={url} alt={`Imagen ${index}`} /> */}
+              <CldImage
+                    width="250"
+                    height="300"
+                    src={pId}
+                    alt="Description of my image"
+                    priority={false}
+                />
             </Link>
           ))}
         </div>

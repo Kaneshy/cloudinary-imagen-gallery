@@ -354,3 +354,19 @@ body {
   position: inherit;
 }
 
+
+
+.it-container {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.it-b-container img {
+  max-height: 90vh;
+  width: auto;
+  padding: 5px;
+}
