@@ -5,8 +5,6 @@ import Link from 'next/link';
 import FloatTarjet from '@/components/FloatTarjet';
 import { CldImage } from 'next-cloudinary';
 
-
-
 export const getServerSideProps = async () => {
   cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -21,12 +19,9 @@ export const getServerSideProps = async () => {
       .sort_by('uploaded_at', 'desc')
       .max_results(80)
       .execute();
-    const secureUrls = results.resources.map(resource => resource.secure_url);
     const publicId = results.resources.map(resource => resource.public_id);
-    console.log(publicId)
     return {
       props: {
-        secureUrls,
         publicId // Pasar secureUrls como propiedad al componente homePage
       }
     }
@@ -38,8 +33,7 @@ export const getServerSideProps = async () => {
 
 }
 
-
-function homePage({ secureUrls, publicId }) {
+function homePage({ publicId }) {
 
   return (
     <>
@@ -54,7 +48,7 @@ function homePage({ secureUrls, publicId }) {
             <Link  href={{
               pathname: '/images/[slug]',
               query: { slug: pId },
-            }} url='url' key={index} className='img-content'   >
+            }}  key={index} className='img-content'   >
               {/* <img loading='lazy' src={url} alt={`Imagen ${index}`} /> */}
               <CldImage
                     width="250"
