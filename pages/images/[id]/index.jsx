@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-const index = () => {
+const tarjetImg = () => {
     const router = useRouter()
 
     return (
@@ -17,4 +17,4 @@ const index = () => {
     )
 }
 
-export default index
+export default tarjetImg
