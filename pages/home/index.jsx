@@ -1,6 +1,8 @@
 import Footer from '@/components/Footer';
 import UploadImg from '@/components/UploadImg';
 import cloudinary from 'cloudinary'
+import Link from 'next/link';
+import FloatTarjet from '@/components/FloatTarjet';
 
 
 export const getServerSideProps = async () => {
@@ -15,7 +17,7 @@ export const getServerSideProps = async () => {
       // you can add also AND tags=shirt AND uploaded_at>1d AND bytes>1m
       .expression('resource_type:image AND folder=my-uploads')
       .sort_by('uploaded_at', 'desc')
-      .max_results(20)
+      .max_results(80)
       .execute();
     const secureUrls = results.resources.map(resource => resource.secure_url);
     return {
@@ -36,15 +38,19 @@ function homePage({ secureUrls }) {
   return (
     <>
       <UploadImg />
+      <FloatTarjet />
       <section className='hp-container' >
         <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
           <h1  >GALLERY</h1>
         </div>
         <div className='pm-grid-container' >
           {secureUrls && secureUrls.map((url, index) => (
-            <div key={index} className='img-content' >
-              <img src={url} alt={`Imagen ${index}`} />
-            </div>
+            <Link  href={{
+              pathname: '/images/[slug]',
+              query: { slug: url },
+            }} url='url' key={index} className='img-content'   >
+              <img loading='lazy' src={url} alt={`Imagen ${index}`} />
+            </Link>
           ))}
         </div>
       </section>

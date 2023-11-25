@@ -307,3 +307,50 @@ body {
   border-radius: 0 0 10px 10px; 
 
 }
+
+.tj-container-img {
+  align-items: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.tj-container-img img {
+  max-height: 90vh;
+}
+
+
+
+
+
+
+
+#tarjet_options {
+  position: fixed;
+  height: 50px;
+  left: 5px;
+  width: 100%;
+  bottom: 0;
+  background-color: black;
+}
+#option-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  padding: 10px;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-around;
+
+}
+.icon-tarjet {
+  width: 25px;
+}
+
+.option2 {
+  position: inherit;
+}
+
