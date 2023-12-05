@@ -358,20 +358,23 @@ body {
 
 
 
-.it-container {
-  background-color: #1a1a1a;
+/* .it-container {
+  background-color: #464343;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-
+.it-b-container {
+  background-color: #242424;
+  display: flex;
+}
 .it-b-container img {
   max-height: 90vh;
   width: auto;
   padding: 5px;
-}
+} */
 
 
 :root {
