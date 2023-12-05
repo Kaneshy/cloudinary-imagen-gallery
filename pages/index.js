@@ -7,8 +7,8 @@ function Home() {
     <section className='containerMP' >
       <div className='cinfoMainpage' >
         <div className='info' >
-          <h1>POKEDEX DB</h1>
-          <p >Encuentra todas las cartas pokemon el la seccion CARDS e imagens PNG en la seccion Img PNG</p>
+          <h1>PIXELART WITH CLOUDINARY</h1>
+          <p >Using cloudinary we get and upload images to the cloudinary store</p>
           <Link href='/home' className='btn' >GET STARTED</Link>
         </div>
         <div>

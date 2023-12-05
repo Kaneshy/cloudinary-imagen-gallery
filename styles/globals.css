@@ -382,7 +382,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 95vh;
+    height: 100vh;
     background: var(--containerTarjet-color);
 }
 
@@ -395,6 +395,21 @@ body {
 .info h1 {
     font-family: Agbalumo;
 }
+
+.btn {
+  margin: 20px 0;
+  background-color: purple;
+  color: white;
+  border-radius: 15px;
+  padding: 15px;
+  width: 150px;
+  text-align: center;
+}
+.btn:hover {
+  background-color: #ffd5ff;
+  color: #190019;
+} 
+
 
 .cinfoMainpage {
     display: flex;
