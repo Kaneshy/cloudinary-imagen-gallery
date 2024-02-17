@@ -38,7 +38,6 @@ function homePage({ publicId }) {
   return (
     <>
       <UploadImg />
-      <FloatTarjet />
       <section className='hp-container' >
         <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
           <h1  >GALLERY</h1>
