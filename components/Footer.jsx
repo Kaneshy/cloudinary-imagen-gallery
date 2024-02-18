@@ -2,40 +2,8 @@ import React from 'react'
 
 function Footer() {
     return (
-        <footer className='footerA' >
-            <div className='flex flex-col gap-3 p-2' >
-                <h2>About</h2>
-                <ol>
-                    <li className='flex flex-col ' >
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                    </li>
-                </ol>
-            </div>
-            <div className='flex flex-col gap-3 p-2' >
-                <h2>About</h2>
-                <ol>
-                    <li className='flex flex-col ' >
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                    </li>
-                </ol>
-            </div>
-            <div className='flex flex-col gap-3 p-2' >
-                <h2>About</h2>
-                <ol>
-                    <li className='flex flex-col '>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                        <a href="">Lomen</a>
-                    </li>
-                </ol>
-            </div>
+        <footer className='bg-black w-full items-center justify-center flex text-center p-10 text-neutral-500' >
+            Terminos y Condiciones IBAM 
         </footer>
     )
 }

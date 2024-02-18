@@ -4,6 +4,8 @@ import cloudinary from 'cloudinary'
 import Link from 'next/link';
 import FloatTarjet from '@/components/FloatTarjet';
 import { CldImage } from 'next-cloudinary';
+import { useState } from 'react';
+import Navbar from '@/components/Default';
 
 export const getServerSideProps = async () => {
   cloudinary.config({
@@ -18,6 +20,7 @@ export const getServerSideProps = async () => {
       .expression('resource_type:image AND folder=my-uploads')
       .sort_by('uploaded_at', 'desc')
       .max_results(80)
+      .next_cursor()
       .execute();
     const publicId = results.resources.map(resource => resource.public_id);
     return {
@@ -35,27 +38,34 @@ export const getServerSideProps = async () => {
 
 function homePage({ publicId }) {
 
+  const [isActive, setisActive] = useState(false)
+
   return (
     <>
-      <UploadImg />
+      <Navbar />
+      <div className='w-full text-center justify-evenly flex p-4'>
+      <button onClick={() => setisActive(!isActive)}>Upload Image</button>
+      <button onClick={() => setisActive(!isActive)}>Upload Image</button>
+      <button onClick={() => setisActive(!isActive)}>Upload Image</button>
+      </div>
+      {isActive && (
+        <UploadImg />
+      )}
       <section className='hp-container' >
-        <div className='flex flex-row p-6 justify-center font-bold mb-10 text-center' >
-          <h1  >GALLERY</h1>
-        </div>
         <div className='pm-grid-container' >
           {publicId && publicId.map((pId, index) => (
-            <Link  href={{
+            <Link href={{
               pathname: '/images/[slug]',
               query: { slug: pId },
-            }}  key={index} className='img-content'   >
+            }} key={index} className='img-content'   >
               {/* <img loading='lazy' src={url} alt={`Imagen ${index}`} /> */}
               <CldImage
-                    width="250"
-                    height="300"
-                    src={pId}
-                    alt="Description of my image"
-                    priority={false}
-                />
+                width="250"
+                height="300"
+                src={pId}
+                alt="Description of my image"
+                priority={false}
+              />
             </Link>
           ))}
         </div>
