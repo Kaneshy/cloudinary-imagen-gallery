@@ -38,20 +38,12 @@ export const getServerSideProps = async () => {
 
 function homePage({ publicId }) {
 
-  const [isActive, setisActive] = useState(false)
 
   return (
     <>
       <Navbar />
-      <div className='w-full text-center justify-evenly flex p-4'>
-      <button onClick={() => setisActive(!isActive)}>Upload Image</button>
-      <button onClick={() => setisActive(!isActive)}>Upload Image</button>
-      <button onClick={() => setisActive(!isActive)}>Upload Image</button>
-      </div>
-      {isActive && (
-        <UploadImg />
-      )}
-      <section className='hp-container' >
+      
+      <section className='hp-container  mt-36' >
         <div className='pm-grid-container' >
           {publicId && publicId.map((pId, index) => (
             <Link href={{

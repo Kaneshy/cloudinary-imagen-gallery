@@ -30,7 +30,7 @@ const ImgTarjet = () => {
                     </div>
                 </div>
             )}
-            <div onClick={() => router.back()} className='fixed top-2 left-2 p-2 text-black text-lg font-bold bg-purple-950 rounded-md' >
+            <div onClick={() => router.back()} className='fixed top-2 left-2 p-2  text-lg font-bold bg-neutral-800 text-white rounded-md' >
                 back
             </div>
         </>

@@ -46,10 +46,7 @@ export default function UploadImg() {
     }
 
     return (
-        <section className='container'>
-            <h2 className='title'> PIXELART</h2>
-
-
+        <section className='container '>
             <form className='img-card' method="post" onChange={handleOnChange} onSubmit={handleOnSubmit}>
 
                 <div className='upi-container' >

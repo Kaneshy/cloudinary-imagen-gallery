@@ -1,17 +1,28 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import UploadImg from './UploadImg'
+import { IoMdCloudUpload } from "react-icons/io";
+
 
 const Navbar = () => {
+
+  const [isActive, setisActive] = useState(false)
+
   return (
-    <nav className='flex justify-between p-4'>
-        <section className='t text-xl font-bold'>
-            PixelArt
-        </section>
-        <section className='flex justify-between gap-4'>
-            <Link href={'/'}>Atom</Link>
-            <Link href={'/'}>Electron</Link>
-            <Link href={'/'}>Proton</Link>
-        </section>
+    <nav className='fixed w-full top-0 flex flex-col p-4 bg-neutral-950'>
+      <section className='flex justify-between p-4 bg-neutral-950'>
+        <div className='t text-xl font-bold'>
+          PixelArt
+        </div>
+        <div className=' '>
+          <button className='py-1 px-2 bg-neutral-900 rounded-xl' onClick={() => setisActive(!isActive)}>
+            <IoMdCloudUpload size={28} />
+          </button>
+        </div>
+      </section>
+      {isActive && (
+        <UploadImg />
+      )}
     </nav>
   )
 }
